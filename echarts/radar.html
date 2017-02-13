@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="echarts.js"></script>
+</head>
+<body>
+	<div id="main" style="width: 600px;height: 400px;"></div>
+	<script>
+		var myChart = echarts.init(document.getElementById('main'));
+		var option = {
+			title:{
+				text:'雷达图'
+			},
+			tooltip:{},
+			toolbox:{},
+			legend:{
+				data:['技能掌握度']
+			},
+			series:[
+				{
+					name:'技能掌握情况',
+					type:'radar',
+					data:[
+						{
+							value:[70,90,90,80,50,40,50],
+							name:'技能'
+						}
+					]
+				}
+			],
+			radar:{
+				indicator:[
+					{name:'js',max:'100'},
+					{name:'html',max:'100'},
+					{name:'css',max:'100'},
+					{name:'jq',max:'100'},
+					{name:'react',max:'100'},
+					{name:'php',max:'100'},
+					{name:'mysql',max:'100'},
+				]
+			}
+		};
+		myChart.setOption(option);
+	</script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="echarts.js"></script>
+</head>
+<body>
+	<div id="main" style="width: 600px;height: 400px;"></div>
+	<script>
+		var myChart = echarts.init(document.getElementById('main'));
+
+		var option = {
+			title:{
+				text:'饼图'
+			},
+			tooltip:{},
+			toolbox:{},
+			legend:{
+				orient:'vertical',
+				left:'right',
+				data:['js','html','css','ajax','jq']
+			},
+			series:[
+				{
+					name:'访问来源',
+					type:'pie',
+					radius:'50%',
+					center:['50%','60%'],
+					data:[
+						{value:40,name:'js'},
+						{value:20,name:'html'},
+						{value:30,name:'css'},
+						{value:10,name:'ajax'},
+						{value:20,name:'jq'}
+					]
+				}
+			]
+		};
+
+		myChart.setOption(option);
+	</script>
+</body>
+</html>

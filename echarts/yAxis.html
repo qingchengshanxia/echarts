@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="echarts.js"></script>
+</head>
+<body>
+	<div id="main" style="width: 600px;height: 400px;"></div>
+	<script>
+		var myChart = echarts.init(document.getElementById('main'));
+		var option = {
+			title:{
+				show:true
+			},
+			tooltip:{
+				trigger:'axis'
+			},
+			toolbox:{
+				feature:{
+					dataView:{
+						show:true
+					},
+					magicType:{
+						show:true
+					},
+					restore:{
+						show:true
+					},
+					savaAsImage:{
+						show:true
+					}
+				}
+			},
+			legend:{
+				data:['蒸发量','降水量','平均温度']
+			},
+			xAxis:[
+				{
+					type:'category',
+					data:['1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月']
+				}
+			],
+			yAxis:[
+				{
+					type:'value',
+					name:'水量',
+					min:0,
+					max:250,
+					interval:50,
+					axisLable:{
+						formatter:'{value} ml'
+					}
+				},
+				{
+					type:'value',
+					name:'温度',
+					min:0,
+					max:45,
+					interval:5,
+					axisLable:{
+						formatter:'{value} ℃'
+					}
+				}
+			],
+			series:[
+				{
+					name:'蒸发量',
+					type:'bar',
+					data:[11,21,12,11,22,42,21,42,23,34,145,54]
+				},
+				{
+					name:'降水量',
+					type:'bar',
+					data:[142,23,12,81,112,42,21,145,54,34,11,211,]
+				},
+				{
+					name:'平均温度',
+					type:'line',
+					yAxisIndex:1,
+					data:[31,21,12,17,22,42,21,32,23,34,19,24]
+				}
+			]
+		};
+		myChart.setOption(option);
+	</script>
+</body>
+</html>

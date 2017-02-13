@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="echarts.js"></script>
+</head>
+<body>
+	<div id="main" style="width: 600px;height: 400px;"></div>
+	<script>
+		var myChart = echarts.init(document.getElementById('main'));
+		var option = {
+			title:{
+				text:'仪表图'
+			},
+			tooltip:{},
+			toolbox:{
+				show:true,
+				feature:{
+					saveAsImage:{
+						show:true
+					}
+				}
+			},
+			series:[
+				{
+					name:'仪表数据',
+					type:'gauge',
+					data:[
+						{
+							value:32,
+							name:'当前值'
+						}
+					]
+				}
+			]
+		};
+		myChart.setOption(option);
+		setInterval(function(){
+			option.series[0].data[0].value = Math.ceil(Math.random()*100);
+			myChart.setOption(option);
+		}, 1000);
+	</script>
+</body>
+</html>

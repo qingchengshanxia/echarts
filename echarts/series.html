@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="echarts.js"></script>
+</head>
+<body>
+	<div id="main" style="width: 600px;height: 400px;"></div>
+	<script>
+		var myChart = echarts.init(document.getElementById('main'));
+
+		var option = {
+			title: {
+				text:'柱形图'
+			},
+			tooltip:{},
+			toolbox:{
+				show:true,
+				feature:{
+					saveAsImage:{
+						show:true
+					}
+				}
+			},
+			legend:{
+				data:['语言']
+			},
+			xAxis:{
+				data:['js','html','css','jquery','git','gulp','php','mysql','react']
+			},
+			yAxis:{},
+			series:[{
+				name:'语言',
+				type:'bar',
+				data:[60,80,90,40,60,40,70,30,40],
+				markPoint:{
+					data:[
+						{type:'max',name:'最大值'},
+						{type:'min',name:'最小值'}
+					]
+				},
+				markLine:{
+					data:[
+						{type:'average',name:'平均值'}
+					]
+				}
+			}]
+		};
+		myChart.setOption(option);
+	</script>
+</body>
+</html>
